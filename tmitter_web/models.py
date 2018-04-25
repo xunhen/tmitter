@@ -4,7 +4,7 @@ import time
 from django.db import connection, models
 from django.contrib import admin
 from django.utils import timesince, html
-from tmitter.utils import formatter, function
+from utils import formatter, function
 from tmitter.settings import *
 import PIL
 from io import StringIO
@@ -72,7 +72,7 @@ class User(models.Model):
     password = models.CharField('密码', max_length=100)
     realname = models.CharField('姓名', max_length=20)
     email = models.EmailField('Email')
-    area = models.ForeignKey(Area, verbose_name='地区')
+    area = models.ForeignKey(Area, verbose_name='地区',on_delete=models.CASCADE)
     face = models.ImageField('头像', upload_to='face/%Y/%m/%d', default='', blank=True)
     url = models.CharField('个人主页', max_length=200, default='', blank=True)
     about = models.TextField('关于我', max_length=1000, default='', blank=True)
@@ -109,8 +109,8 @@ class Note(models.Model):
     )
     message = models.TextField('消息')
     addtime = models.DateTimeField('发布时间', auto_now=True)
-    category = models.ForeignKey(Category, verbose_name='来源')
-    user = models.ForeignKey(User, verbose_name='发布者')
+    category = models.ForeignKey(Category, verbose_name='来源',on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name='发布者',on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.message

@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tmitter_web',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -115,7 +116,7 @@ LANGUAGES = (
 DEFAULT_CHARSET = "utf-8"
 
 LOCALE_PATHS = (
-    '/home/lynn/project/tmitter/conf/locale',
+    os.path.join(BASE_DIR, 'conf', 'locale'),
 )
 
 SITE_ID = 1
@@ -133,11 +134,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/home/lynn/project/tmitter/statics']
+STATICFILES_DIRS = (os.path.join(BASE_DIR, '/statics'),)
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT =  '%s/statics/uploads/' % WEB_PATH
+MEDIA_ROOT = '%s/statics/uploads/' % BASE_DIR
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
@@ -159,12 +160,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
-DATABASE_NAME = '%s/db/tmitter.sqlite' % WEB_PATH          # Or path to database file if using sqlite3.
-DATABASE_USER = ''             # Not used with sqlite3.
-DATABASE_PASSWORD = ''         # Not used with sqlite3.
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+# DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
+# DATABASE_NAME = '%s/db/tmitter.sqlite' % BASE_DIR          # Or path to database file if using sqlite3.
+# DATABASE_USER = ''             # Not used with sqlite3.
+# DATABASE_PASSWORD = ''         # Not used with sqlite3.
+# DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
+# DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://www.postgresql.org/docs/8.1/static/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
@@ -198,13 +199,13 @@ EMAIL_HOST_PASSWORD = '123123'
 EMAIL_HOST_USER = 'huacnlee@foxmail.com'
 EMAIL_SUBJECT_PREFIX = '[Tmitter]'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', #'django.db.backends.',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'tmitter',  # Or path to database file if using sqlite3.
-        'USER': 'postgres',  # Not used with sqlite3.
-        'PASSWORD': 'postgres',  # Not used with sqlite3.
-        'HOST': '127.0.0.1',  # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',  # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', #'django.db.backends.',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'tmitter',  # Or path to database file if using sqlite3.
+#         'USER': 'postgres',  # Not used with sqlite3.
+#         'PASSWORD': 'postgres',  # Not used with sqlite3.
+#         'HOST': '127.0.0.1',  # Set to empty string for localhost. Not used with sqlite3.
+#         'PORT': '5432',  # Set to empty string for default. Not used with sqlite3.
+#     }
+# }

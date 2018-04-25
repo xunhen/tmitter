@@ -6,9 +6,9 @@ from django.core.paginator import Paginator
 from django.core import serializers
 from django.utils.translation import ugettext as _
 from tmitter.settings import *
-from tmitter.tmitter_web.models import Note, User, Category, Area
-from tmitter.tmitter_web.feed import RSSRecentNotes, RSSUserRecentNotes
-from tmitter.utils import mailer, formatter, function, uploader
+from tmitter_web.models import Note, User, Category, Area
+from tmitter_web.feed import RSSRecentNotes, RSSUserRecentNotes
+from utils import mailer, formatter, function, uploader
 
 
 # #################
@@ -199,7 +199,7 @@ def index_page(request, _page_index):
 def index_user_page(request, _username, _page_index):
     # get user login status
     _islogin = __is_login(request)
-    _page_title = _('Home')
+    _page_title = _('Home')   #??????
 
     try:
         # get post params
@@ -251,8 +251,7 @@ def index_user_page(request, _username, _page_index):
         # get friend list
         # _friends = _user.friend.get_query_set().order_by("id")[0:FRIEND_LIST_MAX]
         _friends = _user.friend.order_by("id")[0:FRIEND_LIST_MAX]
-        print
-        "................", _friends
+        print("................", _friends)
         if (_userid == __user_id(request)):
             _self_home = True
 

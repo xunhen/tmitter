@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.contrib.syndication.views import Feed,FeedDoesNotExist
 from django.core.exceptions import ObjectDoesNotExist
-from tmitter.mvc.models import Note,User
-from tmitter.utils import formatter
+from tmitter_web.models import Note,User
+from utils import formatter
 from tmitter.settings import *
-from tmitter.mvc.templatetags import user_tags
+from tmitter_web.templatetags import user_tags
 
 _global_title_template = 'feed/title.html'
 _global_description_template = 'feed/description.html'
