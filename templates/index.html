@@ -9,7 +9,7 @@
 {% block title %}{{ page_title }}{% endblock %}
 {% block head_link %}
 {% if user %}
-<link rel="alternate" type="application/rss+xml" title="{{ user.realname }} {% trans ' recent message' %}" href="/user/feed/rss/recent/{{ user.username }}" />
+<link rel="alternate" type="application/rss+xml" title="{{ user.realname }} {% trans ' recent message' %}" href="/user/feed/rss/recent/" />
 {% else %}
 <link rel="alternate" type="application/rss+xml" title="{% trans 'Recent message of eveyone' %}" href="/feed/rss/recent/" />
 {% endif %}

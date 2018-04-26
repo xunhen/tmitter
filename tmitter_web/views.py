@@ -199,7 +199,7 @@ def index_page(request, _page_index):
 def index_user_page(request, _username, _page_index):
     # get user login status
     _islogin = __is_login(request)
-    _page_title = _('Home')   #??????
+    _page_title = _('Home')
 
     try:
         # get post params
@@ -577,6 +577,8 @@ def friend_add(request, _username):
     # check friend exist
     try:
         _friend = User.objects.get(username=_username)
+        if _user.id==_friend.id:
+            return __result_message(request, _('Sorry'), _('This user is you.'))
         _user.friend.add(_friend)
         return __result_message(request, _('Successed'), _('%s and you are friend now.') % _friend.realname)
     except:

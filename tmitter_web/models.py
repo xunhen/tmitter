@@ -27,7 +27,7 @@ class Category(models.Model):
         verbose_name_plural = '分类'
 
     def __str__(self):
-        return "%s | %s | %s" % (
+        return "%s" % (
            self.name)
 
 
