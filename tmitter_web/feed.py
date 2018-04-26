@@ -73,4 +73,3 @@ class RSSUserRecentNotes(Feed):
         return item.addtime
     
 
-    

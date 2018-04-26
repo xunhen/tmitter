@@ -11,12 +11,12 @@
     <li class="detail">
         <div class="face">
             <p>
-                <a href="{% url 'tmitter-mvc-views-index_user' item.user.username %}">
+                <a href="{% url 'index_user' item.user.username %}">
                 <img src="{{ item.user.face|face32 }}" class="face32" />
                 </a>
             </p>
             <p class="name">
-                <a href="{% url 'tmitter-mvc-views-index_user' item.user.username %}" class="name">{{ item.user.realname }}</a>
+                <a href="{% url 'index_user' item.user.username %}" class="name">{{ item.user.realname }}</a>
             </p>
         </div>
         <div class="right">
@@ -26,7 +26,7 @@
                 <span class="category">{% trans 'from' %} {{ item.category.name }}</span>
                 {% if islogin %}
                 {% ifequal userid item.user.id %}
-                <span class="delete"><a href="{% url 'tmitter-mvc-views-detail_delete' item.id %}">{% trans 'Delete' %}</a></span>
+                <span class="delete"><a href="{% url 'message_delete' item.id %}">{% trans 'Delete' %}</a></span>
                 {% endifequal  %}
                 {% endif %}
             </div>

@@ -5,13 +5,22 @@ from tmitter.settings import *
 
 register = Library()
 
-def in_list(val,lst):
+
+def in_list(val, lst):
     """
     summary:
         检查只时候在列表中
-    author:
-        Jason Lee
     """
     return val in lst
 
+
+def replace(content):
+    """
+        replaces:
+            替换
+        """
+    content.replace('\n', '')
+
+
 register.filter("in_list", in_list)
+register.filter("replace", replace)

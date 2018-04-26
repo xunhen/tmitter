@@ -156,12 +156,12 @@ def __result_message(request, _title=_('Message'), _message=_('Unknow error,proc
     # body content
     _template = loader.get_template('result_message.html')
 
-    _context = Context({
+    _context = {
         'page_title': _title,
         'message': _message,
         'go_back_url': _go_back_url,
         'islogin': _islogin
-    })
+    }
 
     _output = _template.render(_context)
 

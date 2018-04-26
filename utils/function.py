@@ -6,7 +6,7 @@ def md5_encode(str):
     summary:
         MD5 encode
     """
-    return hashlib.md5.new(str).hexdigest()
+    return hashlib.md5(str.encode("utf-8")).hexdigest()
 
 def get_referer_url(request):
     """

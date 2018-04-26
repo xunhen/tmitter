@@ -5,7 +5,7 @@
 {% load user_tags %}
 {% load common_tags %}
 <div class="face">
-    <a href="{% url 'tmitter-mvc-views-index_user' user.username %}"><img src="{{ user.face|face }}" class="face75" /></a>
+    <a href="{% url 'index_user' user.username %}"><img src="{{ user.face|face }}" class="face75" /></a>
 </div>
 <ul class="right">
     <li>{% trans 'Name' %}:{{ user.realname }}</li>
@@ -13,9 +13,9 @@
         <span><a href="{{ user.url }}" target="_blank" title="{% trans 'Open as new window.' %}">{% trans 'Blog' %}</a></span>
 		{% if islogin %}
 			{% if user|in_list:login_user_friend_list %}
-	        <span><a href="{% url 'tmitter.mvc.views.friend_remove' user.username %}" title="{% trans 'Remove friend' %} {{ user.realname }}">{% trans 'Unfollow' %}</a></span>
+	        <span><a href="{% url 'friend_remove' user.username %}" title="{% trans 'Remove friend' %} {{ user.realname }}">{% trans 'Unfollow' %}</a></span>
 			{% else %}
-			<span><a href="{% url 'tmitter-mvc-views-friend_add' user.username %}" title="{{ user.realname }}">{% trans 'Follow' %}</a></span>		
+			<span><a href="{% url 'friend_add' user.username %}" title="{{ user.realname }}">{% trans 'Follow' %}</a></span>
 			{% endif %}
 		{% endif %}
     </li>

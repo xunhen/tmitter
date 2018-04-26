@@ -134,18 +134,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, '/statics'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '%s/statics/uploads/' % BASE_DIR
+MEDIA_ROOT = '%s/static/uploads/' % BASE_DIR
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
-MEDIA_URL = '/statics/uploads/'
+MEDIA_URL = '/static/uploads/'
 
 # Default user face
-DEFAULT_FACE = '/statics/images/face%d.png'
+DEFAULT_FACE = '/static/images/face%d.png'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
